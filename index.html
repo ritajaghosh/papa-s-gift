@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Papa!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="parent">
+    <div class="container">
+      <h1>🎂 Happy Birthday Papa! 🎉</h1>
+      <p>Wishing you a day filled with love, laughter, and your favorite things. Thank you for always being there for us. You are the best!</p>
+    </div>
+    <div id="main-div">
+      <div class="img-container">
+       
+          <div class="box">
+            <img class="img" src="assets/sir1.jpg" alt="">
+          </div>
+          <div class="box">
+             <img class="img" src="assets/sir27.jpg" alt="">
+          </div>
+          <div class="box">
+             <img class="img" src="assets/sir24.jpg" alt="">
+          </div>
+          <div class="box">
+             <img class="img" src="assets/sir5.jpg" alt="">
+          </div>
+          <div class="box">
+             <img class="img" src="assets/sir20.jpg" alt="">
+          </div>
+          <div class="box">
+             <img class="img" src="assets/sir4.jpg" alt="">
+          </div>
+          <div class="box">
+             <img class="img" src="assets/sir8.jpg" alt="">
+          </div>
+          <div class="box">
+             <img class="img" src="assets/sir9.jpg" alt="">
+          </div>
+    
+    <div class="img-container">
+        <div class="row">
+          <div class="box">
+             <img class="img" src="assets/sir10.jpg" alt="">
+          </div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+    </div>
+    <div class="row">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+    </div>
+    </div>
+    
+   
+
+     <!-- <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+     <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+     <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+     <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div> -->
+    </div>
+  </div>
+   <canvas id="confetti"></canvas>
+
+  <script>
+    // Simple confetti animation
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confetti = [];
+
+    for (let i = 0; i < 150; i++) {
+      confetti.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * 10 + 5,
+        color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+        tilt: Math.random() * 10 - 10,
+        tiltAngleIncrement: Math.random() * 0.1 + 0.05,
+        tiltAngle: 0
+      });
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < confetti.length; i++) {
+        let c = confetti[i];
+        ctx.beginPath();
+        ctx.lineWidth = c.r / 2;
+        ctx.strokeStyle = c.color;
+        ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+        ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r);
+        ctx.stroke();
+      }
+
+      updateConfetti();
+    }
+
+    function updateConfetti() {
+      for (let i = 0; i < confetti.length; i++) {
+        let c = confetti[i];
+        c.tiltAngle += c.tiltAngleIncrement;
+        c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+        c.tilt = Math.sin(c.tiltAngle - i / 3) * 15;
+
+        if (c.y > canvas.height) {
+          confetti[i] = {
+            x: Math.random() * canvas.width,
+            y: -10,
+            r: c.r,
+            d: c.d,
+            color: c.color,
+            tilt: c.tilt,
+            tiltAngleIncrement: c.tiltAngleIncrement,
+            tiltAngle: 0
+          };
+        }
+      }
+    }
+
+    (function animate() {
+      requestAnimationFrame(animate);
+      drawConfetti();
+    })();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
