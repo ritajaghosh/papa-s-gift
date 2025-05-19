@@ -37,10 +37,11 @@
       background: rgba(0, 0, 0, 0.3);
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      height: 48vh;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2em;
       margin-bottom: 10px;
     }
 
@@ -64,7 +65,7 @@
     .img-container{
         height: fit-content;
         width: 100%;
-        background-color: aquamarine;
+        background-color: rgb(157, 109, 194);
         align-items: center;
         justify-content: center;
     }
